@@ -1,0 +1,19 @@
+.cover{
+    background-image: url("images/pic.jfif");
+  height: 500px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+nav{
+    margin: 0px;
+    padding: 0px;
+    position: fixed;
+    width: 100%;
+    z-index: 99999;
+}
+.container-fluid{
+    width: 100%;
+    background-color: rgb(197, 164, 225);
+}
