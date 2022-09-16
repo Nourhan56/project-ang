@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'meanapp';
+ 
+  sayHello():void{
+    console.log('hi from class');
+    
+  }
 }

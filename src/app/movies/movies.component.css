@@ -1,0 +1,36 @@
+.card{
+    margin-left: 40px;
+    margin-bottom: 40px;
+    border: 2px solid ;
+    border-radius: 20px 50px;
+    box-shadow: 10px 20px rgb(111, 142, 148);
+}
+img{
+    width: 80%;
+    border: 1px solid;
+    border-radius: 50px 90px;
+    color: black;
+}
+input{
+    margin-top: 20px;
+    margin-left: 400px;
+    border: 3px solid rgb(104, 162, 161);
+    border-radius: 20px 50px;
+}
+button{
+    margin-left: 20px;
+    border: 3px solid rgb(104, 162, 161);
+    border-radius: 50px 20px;
+    color: rgb(14, 14, 15);
+    background-image: linear-gradient(rgb(0, 255, 208),rgb(165, 29, 93));
+}
+mat-paginator{
+    margin-bottom: 20px;
+    font-size: x-large;
+    background-image: linear-gradient(rgb(0, 255, 208),rgb(165, 29, 93));
+}
+.card-title{
+   
+    font-size: large;
+    text-shadow: 1px 2px rgb(4, 254, 225) ;
+}

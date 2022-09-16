@@ -1,0 +1,45 @@
+<div class="container">
+    <input type="text" placeholder="   search by name" [(ngModel)]="search" />
+    <button class="btn btn-outline-success my-2 my-sm-0" (click)="toggleLang()">
+      {{ lang }}
+    </button>
+  
+    <p>{{ search }}</p>
+    <div class="row">
+     
+      <div class="card" style="width: 16rem " *ngFor="let movie of filteredMovies">
+       <a [routerLink]="['/movies', movie.id ]">
+         <img
+          [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
+          class="card-img-top"
+          alt="{{ movie.title }}"
+        />
+      </a> 
+        <div class="card-body">
+          <h5 class="card-title">{{ movie.title | uppercase }}</h5>
+          <p class="card-text" *ngIf="movie.isVisable">
+            {{ movie.overview | lowercase }}
+          </p>
+          <p>Release Date:{{ movie.release_date | date }}</p>
+          <p>Ticket Price:{{ movie.vote_average | currency }}</p>
+          <app-star
+            [rating]="movie.rating"
+            (prodCast)="messageFromChild($event)"
+          ></app-star>
+          <button
+            class="btn btn-primary"
+           
+            (click)="toggleDiscription(movie.id)"
+          >
+            {{ movie.isVisable ? "Hide " : "Show " }}Details
+          </button>
+        </div>
+      </div>
+      <mat-paginator class="col-12"
+      [length]="length"
+      [pageSize]="pageSize"
+      (page)="onPageChange($event)"
+    >
+    </mat-paginator> 
+    </div>
+  </div>

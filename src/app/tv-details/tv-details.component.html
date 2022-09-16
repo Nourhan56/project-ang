@@ -1,0 +1,38 @@
+<div class="d-flex justify-content-center" *ngIf="isLoading">
+	<div class="spinner-border" role="status" style="width: 10rem; height: 10rem;">
+	  <span class="sr-only">Loading...</span>
+	</div>
+  </div>
+
+<div class="wrapper">
+  <div class="main_card">
+    <div class="card_left">
+      <div class="card_datails">
+        <h1>{{ tv.name  }}</h1>
+        <div class="card_cat">
+          <p class="year">Year: {{ tv.release_date | date: "y" }}</p>
+          <p class="genre">
+            {{ tv.genres[0].name }}, {{ tv.genres[1].name }}
+          </p>
+          <p class="time">{{ tv.runtime }} Min</p>
+        </div>
+        <p class="disc">{{ tv.overview }}</p>
+        <a href="https://www.imdb.com/title/tt4912910/" target="_blank"
+          >Read More</a
+        >
+        <div class="social-btn">
+          <button><i class="fas fa-play"></i> SEE TRAILER</button>
+        </div>
+      </div>
+    </div>
+    <div class="card_right">
+      <div class="img_container">
+        <img
+          [src]="'https://image.tmdb.org/t/p/w500' + tv.poster_path"
+          alt=""
+        />
+      </div>
+    </div>
+  </div>
+</div>
+

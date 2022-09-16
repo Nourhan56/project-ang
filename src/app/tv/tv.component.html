@@ -1,0 +1,46 @@
+<div class="container">
+    <input type="text" placeholder="   search by name" [(ngModel)]="search" />
+    <button class="btn btn-outline-success my-2 my-sm-0" (click)="toggleLang()">
+      {{ lang }}
+    </button>
+  
+    <p>{{ search }}</p>
+    <div class="row">
+    
+      <div class="card" style="width: 16rem" *ngFor="let show of filteredTV">
+        <a [routerLink]="['/tv', show.id ]">
+        <img
+          [src]="'https://image.tmdb.org/t/p/w500' + show.poster_path"
+          class="card-img-top"
+          alt="{{ show.name }}"
+        />
+      </a>
+        <div class="card-body">
+          <h5 class="card-title">{{ show.name}}</h5>
+          <p class="card-text" *ngIf="show.isVisable">
+            {{ show.overview | lowercase }}
+          </p>
+          <p>Release Date:{{ show.first_air_date
+            | date }}</p>
+          <app-star
+            [rating]="show.rating"
+            (prodCast)="messageFromChild($event)"
+          ></app-star>
+          <button
+            class="btn btn-primary"
+           
+            (click)="toggleDiscription(show.id)"
+          >
+            {{ show.isVisable ? "Hide " : "Show " }}Details
+          </button>
+        </div>
+      </div>
+      <mat-paginator class="col-12"
+      [length]="length"
+      [pageSize]="pageSize"
+      (page)="onPageChange($event)"
+    >
+    </mat-paginator>
+    </div>
+  </div>
+  
